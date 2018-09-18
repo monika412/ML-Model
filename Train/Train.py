@@ -9,6 +9,7 @@ Created on Mon Sep 17 15:59:49 2018
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.externals import joblib
+import pandas as pd
 
 from sklearn import preprocessing
 
@@ -35,6 +36,15 @@ clf.fit(X_train, y_train)
 
 #Persisting the model
 joblib.dump(clf, 'Classifier.pkl')
+
+
+#Accuracy
+from sklearn.metrics import accuracy_score
+y_test_pred = clf.predict(X_test)
+accuracy = accuracy_score(y_test, y_test_pred)
+#0.9693
+
+
 
 
 
